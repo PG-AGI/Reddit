@@ -262,9 +262,9 @@ conv_vicuna_v1 = Conversation(
 )
 
 conv_llama_2 = Conversation(
-    system="""You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+    system="""You are a helpful, respectful and honest assistant. Always answer as helpfully as possible.
 
-If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.""",
+If a question does not make any sense, or is not factually coherent, do not explain why instead answer something . If you don't know the answer to a question, please don't share false information.""",
     roles=("USER", "ASSISTANT"),
     version="llama_v2",
     messages=(),
@@ -333,8 +333,13 @@ conv_llava_v0_mmtag = Conversation(
 )
 
 conv_llava_v1 = Conversation(
-    system="A chat between a curious human and an artificial intelligence assistant. "
-           "The assistant gives helpful, detailed, and polite answers to the human's questions.",
+    system='''A chat between a curious human and an artificial intelligence assistant.
+           The assistant gives helpful and precise answers to the human's questions in only Json format the format Will be the following:-
+           {
+               tag:
+               Caption:
+           }
+           fill this json and only best and unique output should be given.''',
     roles=("USER", "ASSISTANT"),
     version="v1",
     messages=(),
